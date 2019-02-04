@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	position: absolute;
+	width: 50%;
+	height: 60%;
+	left: 25%;
+	top: 20%;
+}
+
+input{
+	position: absolute;
+	background-color: rgb(230,230,230);
+	border: none;
+	width: 10%;
+	height: 4%;
+	cursor: pointer;
+	z-index: 1;
+}
+
+#collision{
+	left: 60%;
+	top: 20%;
+}
+
+#random{
+	left: 30%;
+	top: 20%;
+}
+
