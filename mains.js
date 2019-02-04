@@ -8,7 +8,7 @@ canvas.height = div.clientHeight;
 ctx.translate(canvas.width/2,canvas.height/2);
 ctx.scale(1,-1);
 
-let count = 5, type = "", myLoop, myLoops, bool = true;
+let count = 5, type = "", myLoop, myLoops, collide = 0, times = 0;
 
 function createCircle(){
 	ctx.beginPath();
@@ -69,16 +69,19 @@ function drawCircle(color){
 
 function insideCircle(){
 	//check if small dot is inside the triangle
+	times += 1;
 	let a = dist(points[0].x,points[0].y,points[1].x,points[1].y);
 	let b = dist(points[1].x,points[1].y,points[2].x,points[2].y);
 	let c = dist(points[2].x,points[2].y,points[0].x,points[0].y);
 	
 	if(a*b > 0 && b*c > 0){
+		collide += 1;
 		drawCircle("red");
 	}else{
 		drawCircle("black");
 	}
 	
+	document.getElementsByTagName("p")[0].innerHTML = Math.round(collide/times * 100) + " %";
 }
 
 
@@ -104,7 +107,6 @@ function randomCircles(){
 
 function checkCollision(){
 	type = "collision";
-	console.log(type);
 	if(count == 0){
 		points = [];
 		ctx.clearRect(-canvas.width/2,canvas.height/2,10000,-10000);
